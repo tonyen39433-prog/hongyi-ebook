@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子書閱讀器</title>
+    <!-- 載入 PDF.js 主程式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .controls {
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        #pdf-render {
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button id="prev">上一頁</button>
+        <span>頁數: <span id="page-num">1</span> / <span id="page-count">0</span></span>
+        <button id="next">下一頁</button>
+    </div>
+
+    <!-- 必須要有這行，且 id 必須是 pdf-render -->
+    <canvas id="pdf-render"></canvas>
+
+    <!-- 載入控制邏輯 -->
+    <script src="js/viewer.js"></script>
+</body>
+</html>
