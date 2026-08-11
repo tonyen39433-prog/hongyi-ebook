@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子書閱讀器</title>
+    <!-- 載入 PDF.js 主程式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        select, button {
+            padding: 8px 12px;
+            font-size: 15px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #pdf-render {
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            background-color: #fff;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <!-- 新增目錄下拉選單 -->
+        <label for="toc-select"><strong>目錄：</strong></label>
+        <select id="toc-select">
+            <option value="0">目錄 (TOC)</option>
+            <option value="1">序言一 (Pref 1)</option>
+            <option value="2">序言二 (Pref 2)</option>
+            <option value="3">序言三 (Pref 3)</option>
+            <option value="4">序言四 (Pref 4)</option>
+        </select>
+
+        <button id="prev">上一頁</button>
+        <span>頁數: <span id="page-num">1</span> / <span id="page-count">0</span></span>
+        <button id="next">下一頁</button>
+    </div>
+
+    <!-- PDF 繪製畫布 -->
+    <canvas id="pdf-render"></canvas>
+
+    <!-- 載入控制腳本 -->
+    <script src="js/viewer.js"></script>
+</body>
+</html>
